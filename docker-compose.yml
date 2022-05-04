@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api:
+    build: .\InfoTrackSEO.Api\.
+    restart: always
+    ports:
+      - "5000:80"
+      
+  vue:
+    build: .\InfoTrack.Vue\infotrackseo\.
+    restart: always
+    ports:
+      - "5001:8080"
+    depends_on:
+      - api
